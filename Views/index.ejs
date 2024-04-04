@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Joke API Playground</h1>
+
+    <div>
+        <h1>Select Joke types you want to blacklist</h1>
+        <form action="/getJoke" method="GET">
+            <input type="radio" id="any" value="any" name="choice">
+            <label for="Any">any</label>
+
+            <input type="radio" id="nsfw" value="nsfw" name="choice">
+            <label for="nsfw">NSFW</label>
+
+            <input type="radio" id="religious" value="religious" name="choice">
+            <label for="religious">religious</label>
+
+            <input type="radio" id="political" value="political" name="choice">
+            <label for="political">political</label>
+
+            <input type="radio" id="racist" value="racist" name="choice"> 
+            <label for="racist">racist</label>
+
+            <input type="radio" id="sexist" value="sexist" name="choice">
+            <label for="sexist">sexist</label>
+
+            <input type="radio" id="explicit" value="explicit" name="choice">
+            <label for="explicit">explicit</label>
+            </br>
+
+            <button class="navBtn" type="submit" >Generate joke</button>
+
+        </form>
+
+    </div>  
+    <div class="joke">
+        <% if(locals.jokeCalled && locals.joke){%>
+            <h3><%= joke %></h3>
+
+        <% }else{%>
+            <h3><%=setup%></h3>
+            <h3><%=delivery%></h3>
+        <%}%>
+             
+    </div>  
+    
+</body>
+</html>
