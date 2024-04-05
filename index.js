@@ -10,7 +10,7 @@ let delivery;
 let joke;
 
 app.use(bodyParser.urlencoded({ extended: true }));
-app.use(express.static('public'))
+app.use(express.static('public'));
 
 
 app.listen(port, () => {
@@ -28,12 +28,24 @@ app.get("/", async (req,res)=>{
 })
 
 app.get("/getJoke", async(req, res)=>{
+    let url = "https://v2.jokeapi.dev/joke/";
+    if(req.query.category){
+        url += req.query.category+"?";
+    }
+    else{
+        url+="Any?"
+    }
 
-    // const url = "https://v2.jokeapi.dev/joke/Any?blacklistFlags="+req.query.choice;
-    const url = "https://v2.jokeapi.dev/joke/Any";
+    if(req.query.choice){
+        url+= "?blacklistFlags="+req.query.choice;
+    }
+    if(req.query.contains){
+        url += "&contains="+req.query.contains;
+    }
 
 
     try{
+        console.log('url :' + url);
         const response = await axios.get(url);
         joke = "";
         setup= "";
@@ -41,7 +53,6 @@ app.get("/getJoke", async(req, res)=>{
         jokeCalled = true;
         
         console.log("akwasi response" + response.data.type);
-        // console.log(response )
         if(response.data.type == "twopart"){
             console.log("this is the setup" + response.data.setup );
             console.log("this is the delivery" + response.data.delivery);

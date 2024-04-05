@@ -4,50 +4,90 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+
 </head>
 <body>
-    <h1>Joke API Playground</h1>
 
-    <div>
-        <h1>Select Joke types you want to blacklist</h1>
+    <h1 class="fontColor title">Joke Generator</h1>
+   
+
+    <div class="mainContainer">
+    
         <form action="/getJoke" method="GET">
-            <input type="radio" id="any" value="any" name="choice">
-            <label for="Any">any</label>
+            <div class="category">
+                <h3 class="fontColor">Select category</h3>
 
-            <input type="radio" id="nsfw" value="nsfw" name="choice">
-            <label for="nsfw">NSFW</label>
+                <input type="checkbox" id="Programming" value="Programming" name="category">
+                <label class="fontColor" for="Programming">Programming</label>
 
-            <input type="radio" id="religious" value="religious" name="choice">
-            <label for="religious">religious</label>
+                <input type="checkbox" id="misc" value="Miscellaneous" name="category">
+                <label class="fontColor" for="misc">Misc</label>
 
-            <input type="radio" id="political" value="political" name="choice">
-            <label for="political">political</label>
+                <input type="checkbox" id="dark" value="dark" name="category">
+                <label class="fontColor" for="dark">Dark</label>
 
-            <input type="radio" id="racist" value="racist" name="choice"> 
-            <label for="racist">racist</label>
+                <input type="checkbox" id="pun" value="pun" name="category">
+                <label class="fontColor" for="pun">pun</label>
 
-            <input type="radio" id="sexist" value="sexist" name="choice">
-            <label for="sexist">sexist</label>
+                <input type="checkbox" id="spooky" value="spooky" name="category">
+                <label class="fontColor" for="spooky">Spooky</label>
 
-            <input type="radio" id="explicit" value="explicit" name="choice">
-            <label for="explicit">explicit</label>
-            </br>
+                <input type="checkbox" id="christmas" value="christmas" name="christmas">
+                <label class="fontColor" for="christmas">Christmas</label>
 
-            <button class="navBtn" type="submit" >Generate joke</button>
+
+
+
+            </div>
+
+            <div>
+                <h3 class="fontColor">Any keywords</h3>
+                <label for="contains" class="fontColor">Search for a joke with a specfic words:</label>
+                <input type="text" id="contains" name="contains"><br><br>
+            </div>
+            <div class="blacklist">
+                <h3 class="fontColor">Select Joke types you want to blacklist</h3>
+                <div class="blacklist">
+           
+
+                <input type="checkbox" id="nsfw" value="nsfw" name="choice">
+                <label class="fontColor" for="nsfw">NSFW</label>
+
+                <input type="checkbox" id="religious" value="religious" name="choice">
+                <label for="religious" class="fontColor">religious</label>
+
+                <input type="checkbox" id="political" value="political" name="choice">
+                <label for="political" class="fontColor">political</label>
+
+                <input type="checkbox" id="racist" value="racist" name="choice"> 
+                <label for="racist" class="fontColor">racist</label>
+
+                <input type="checkbox" id="sexist" value="sexist" name="choice">
+                <label for="sexist" class="fontColor">sexist</label>
+
+                <input type="checkbox" id="explicit" value="explicit" name="choice">
+                <label for="explicit" class="fontColor">explicit</label>
+                </br>
+                <div class="buttonDiv">
+                    <button class="navBtn" type="submit" >Generate joke</button>
+                </div>
+            </div>
 
         </form>
 
-    </div>  
     <div class="joke">
         <% if(locals.jokeCalled && locals.joke){%>
-            <h3><%= joke %></h3>
+            <h3 class="fontColor"><%= joke %></h3>
 
         <% }else{%>
-            <h3><%=setup%></h3>
-            <h3><%=delivery%></h3>
+            <h3 class="fontColor"><%=setup%></h3>
+            <h3 class="fontColor"><%=delivery%></h3>
         <%}%>
              
     </div>  
+
+</div>  
     
 </body>
 </html>

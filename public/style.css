@@ -1,0 +1,28 @@
+body{
+    background-color: #9A3B3B;
+}
+
+.fontColor{
+    color:#E2C799;
+}
+.mainContainer{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+}
+.title{
+    display:flex;
+    align-items: center;
+    justify-content: center;
+}
+.buttonDiv{
+    display:flex;
+    padding-top: 30px;
+    justify-content: center;
+}
+.navBtn{
+    padding:10px;
+    background-color: #E2C799;
+    color:#9A3B3B;
+    font-size:25px;
+}
